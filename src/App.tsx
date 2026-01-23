@@ -1,4 +1,4 @@
-import { GitHubBanner, Refine, WelcomePage } from "@refinedev/core";
+import { Refine } from "@refinedev/core";
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 
@@ -21,7 +21,6 @@ import SubjectsCreate from "./pages/subjects/create";
 function App() {
   return (
     <BrowserRouter>
-
       <RefineKbarProvider>
         <ThemeProvider>
           <DevtoolsProvider>
@@ -36,25 +35,26 @@ function App() {
               }}
               resources={[
                 {
-                  name: 'dashboard',
-                  list: '/',
-                  meta: { label: 'Home', icon: <Home /> }
+                  name: "dashboard",
+                  list: "/",
+                  meta: { label: "Home", icon: <Home /> },
                 },
                 {
-                  name: 'subjects',
-                  list: '/subjects',
-                  create: '/subjects/create',
-                  meta: { label: 'Subjects', icon: <BookOpen /> }
-                }
+                  name: "subjects",
+                  list: "/subjects",
+                  create: "/subjects/create",
+                  meta: { label: "Subjects", icon: <BookOpen /> },
+                },
               ]}
             >
               <Routes>
-                <Route element={
-                  <Layout>
-                    <Outlet />
-                  </Layout>
-                }>
-
+                <Route
+                  element={
+                    <Layout>
+                      <Outlet />
+                    </Layout>
+                  }
+                >
                   <Route path="/" element={<Dashboard />} />
                   <Route path="subjects">
                     <Route index element={<SubjectsList />} />
