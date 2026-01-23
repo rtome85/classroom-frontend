@@ -27,12 +27,12 @@ const SubjectsList = () => {
     selectedDepartment === "all"
       ? []
       : [
-          {
-            field: "department",
-            operator: "eq" as const,
-            value: selectedDepartment,
-          },
-        ];
+        {
+          field: "department",
+          operator: "eq" as const,
+          value: selectedDepartment,
+        },
+      ];
 
   const searchFilters = searchQuery
     ? [{ field: "name", operator: "contains" as const, value: searchQuery }]
@@ -116,15 +116,15 @@ const SubjectsList = () => {
             >
               <SelectTrigger>
                 <SelectValue placeholder="Select Department" />
-                <SelectContent>
-                  <SelectItem value="all">All Departments</SelectItem>
-                  {DEPARTMENT_OPTIONS.map((option) => (
-                    <SelectItem key={option.value} value={option.value}>
-                      {option.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
               </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Departments</SelectItem>
+                {DEPARTMENT_OPTIONS.map((option) => (
+                  <SelectItem key={option.value} value={option.value}>
+                    {option.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
             </Select>
 
             <CreateButton />
