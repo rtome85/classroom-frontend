@@ -132,14 +132,12 @@ const ClassesCreate = () => {
                           value={
                             field.value
                               ? {
-                                url: field.value,
-                                publicId: bannerPublicId ?? "",
-                              }
+                                  url: field.value,
+                                  publicId: bannerPublicId ?? "",
+                                }
                               : null
                           }
-                          onChange={(file: any, field: any) =>
-                            setBannerImage(file, field)
-                          }
+                          onChange={(file) => setBannerImage(field, file)}
                         />
                       </FormControl>
                       <FormMessage />
