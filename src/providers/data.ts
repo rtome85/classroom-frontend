@@ -49,6 +49,8 @@ const options: CreateDataProviderOptions = {
 					if (field === "subject") params.subject = value;
 					if (field === "teacher") params.teacher = value;
 				}
+
+				if (resource === "users" && field === "role") params.role = value;
 			});
 
 			return params;
@@ -75,9 +77,15 @@ const options: CreateDataProviderOptions = {
 		buildBodyParams: async ({ variables }) => variables,
 
 		mapResponse: async (response) => {
+			if (!response.ok) throw await buildHttpError(response);
 			const json: CreateResponse = await response.json();
-
-			return json.data ?? [];
+			if (!json.data) {
+				throw {
+					message: "Create response missing data.",
+					statusCode: response.status,
+				};
+			}
+			return json.data;
 		},
 	},
 };
