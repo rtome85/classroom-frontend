@@ -195,6 +195,7 @@
 body {
   letter-spacing: var(--tracking-normal);
 }
+
 @layer components {
   .page-title {
     @apply text-3xl font-bold text-foreground tracking-tight;

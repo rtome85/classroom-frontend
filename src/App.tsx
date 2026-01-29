@@ -17,7 +17,7 @@ import { BookOpen, GraduationCap, Home } from "lucide-react";
 import { Layout } from "./components/refine-ui/layout/layout";
 import SubjectsList from "./pages/subjects/list";
 import SubjectsCreate from "./pages/subjects/create";
-import ClassesList from "./pages/classes/lists";
+import ClassesList from "./pages/classes/list";
 import ClassesCreate from "./pages/classes/create";
 
 function App() {
