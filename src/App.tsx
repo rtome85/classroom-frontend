@@ -13,12 +13,13 @@ import { useNotificationProvider } from "./components/refine-ui/notification/use
 import { ThemeProvider } from "./components/refine-ui/theme/theme-provider";
 import { dataProvider } from "./providers/data";
 import Dashboard from "./pages/dashboard";
-import { BookOpen, GraduationCap, Home } from "lucide-react";
+import { BookOpen, GraduationCap, Home, MenuSquare } from "lucide-react";
 import { Layout } from "./components/refine-ui/layout/layout";
 import SubjectsList from "./pages/subjects/list";
 import SubjectsCreate from "./pages/subjects/create";
 import ClassesList from "./pages/classes/list";
 import ClassesCreate from "./pages/classes/create";
+import ClassesShow from "./pages/classes/show";
 
 function App() {
   return (
@@ -34,6 +35,10 @@ function App() {
                 syncWithLocation: true,
                 warnWhenUnsavedChanges: true,
                 projectId: "AkZ4dP-bxWtBh-dpkIvD",
+                title: {
+                  text: "Administração",
+                  icon: <MenuSquare />
+                }
               }}
               resources={[
                 {
@@ -51,6 +56,7 @@ function App() {
                   name: "classes",
                   list: "/classes",
                   create: "/classes/create",
+                  show: "/classes/show/:id",
                   meta: { label: "Classes", icon: <GraduationCap /> },
                 },
               ]}
@@ -71,6 +77,7 @@ function App() {
                   <Route path="classes">
                     <Route index element={<ClassesList />} />
                     <Route path="create" element={<ClassesCreate />} />
+                    <Route path="show/:id" element={<ClassesShow />} />
                   </Route>
                 </Route>
               </Routes>
