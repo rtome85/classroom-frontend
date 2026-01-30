@@ -96,7 +96,7 @@ const options: CreateDataProviderOptions = {
 			if (!response.ok) throw await buildHttpError(response);
 			const json: GetOneResponse = await response.json();
 
-			return json.data ?? [];
+			return json.data;
 		},
 	},
 };
