@@ -32,7 +32,7 @@ const registerSchema = z.object({
   email: z.string().email("Invalid email address"),
   password: z.string().min(8, "Password must be at least 8 characters"),
   name: z.string().min(3, "Full name must be at least 3 characters"),
-  role: z.nativeEnum(UserRole),
+  role: z.enum([UserRole.STUDENT, UserRole.TEACHER]),
   image: z.string().optional(),
   imageCldPubId: z.string().optional(),
 });
