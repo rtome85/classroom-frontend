@@ -14,7 +14,7 @@ import { useNotificationProvider } from "./components/refine-ui/notification/use
 import { ThemeProvider } from "./components/refine-ui/theme/theme-provider";
 import { dataProvider } from "./providers/data";
 import Dashboard from "./pages/dashboard";
-import { BookOpen, GraduationCap, Home, MenuSquare } from "lucide-react";
+import { BookOpen, Building2, GraduationCap, Home, MenuSquare } from "lucide-react";
 import { Layout } from "./components/refine-ui/layout/layout";
 import SubjectsList from "./pages/subjects/list";
 import SubjectsCreate from "./pages/subjects/create";
@@ -24,6 +24,9 @@ import ClassesShow from "./pages/classes/show";
 import Login from "./pages/login";
 import Register from "./pages/register";
 import { authProvider } from "./providers/auth";
+import DepartmentsList from "./pages/departments/list";
+import DepartmentsCreate from "./pages/departments/create";
+import DepartmentsShow from "./pages/departments/show";
 
 function App() {
   return (
@@ -64,6 +67,14 @@ function App() {
                   show: "/classes/show/:id",
                   meta: { label: "Classes", icon: <GraduationCap /> },
                 },
+                {
+                  name: "departments",
+                  list: "/departments",
+                  create: "/departments/create",
+                  show: "/departments/show/:id",
+                  meta: { label: "Departments", icon: <Building2 /> },
+                },
+
               ]}
             >
               <Routes>
@@ -96,6 +107,11 @@ function App() {
                     <Route index element={<ClassesList />} />
                     <Route path="create" element={<ClassesCreate />} />
                     <Route path="show/:id" element={<ClassesShow />} />
+                  </Route>
+                  <Route path="departments">
+                    <Route index element={<DepartmentsList />} />
+                    <Route path="create" element={<DepartmentsCreate />} />
+                    <Route path="show/:id" element={<DepartmentsShow />} />
                   </Route>
                 </Route>
               </Routes>
