@@ -17,7 +17,6 @@ import { useTable } from "@refinedev/react-table";
 import { Subject } from "@/types";
 import { ColumnDef } from "@tanstack/react-table";
 import { Badge } from "@/components/ui/badge";
-import { getValueByDataKey } from "recharts/types/util/ChartUtils";
 
 const SubjectsList = () => {
   const [searchQuery, setSearchQuery] = React.useState("");
